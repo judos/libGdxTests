@@ -1,0 +1,49 @@
+Notes
+
+1.Generate key + pem (probably encoded in utf8):
+openssl req -newkey rsa:4096 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+		PS D:\projects\Kwik\test> openssl req -newkey rsa:4096 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+		Generating a 4096 bit RSA private key
+		.........++
+		.................++
+		writing new private key to 'key.pem'
+		-----
+		You are about to be asked to enter information that will be incorporated
+		into your certificate request.
+		What you are about to enter is what is called a Distinguished Name or a DN.
+		There are quite a few fields but you can leave some blank
+		For some fields there will be a default value,
+		If you enter '.', the field will be left blank.
+		-----
+		Country Name (2 letter code) [AU]:CH
+		State or Province Name (full name) [Some-State]:Bern
+		Locality Name (eg, city) []:
+		Organization Name (eg, company) [Internet Widgits Pty Ltd]:Organisation
+		Organizational Unit Name (eg, section) []:
+		Common Name (e.g. server FQDN or YOUR name) []:localhost
+		Email Address []:
+
+2.kwik.jar uses default Linebreaks on System, so on 
+	Windows it uses \R\N for files 
+convert keyfile linebreaks with notepad++ to make sure they are correct
+
+3. Ticket how to use kwik:
+https://github.com/ptrd/kwik/issues/10
+
+4. Commands to use:
+server (on windows)
+	java -cp kwik.jar net.luminis.quic.server.Server cert-win-lb.pem key-win-lb.pem 11014 "D:\Downloads\"
+client (on windows)
+	java -jar kwik.jar localhost:11014 -H 'index.html' --noCertificateCheck
+	
+----------------------------------------------
+OLD STUFF AND COMMANDS
+----------------------------------------------
+
+- Generating cert/keyfile (wrong filetype for what is needed)
+	[1. Generate key file]
+	openssl genrsa -out test.key 4096
+	[2. generate csr file?)
+	openssl req -new -key test.key -out test.csr
+- Tool for encoding: (only linebreaks matter?)
+	https://www.freeformatter.com/convert-file-encoding.html
