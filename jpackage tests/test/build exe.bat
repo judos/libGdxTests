@@ -1,0 +1,1 @@
+jpackage --input . --name TeamSnakes --main-jar '.\TeamSnakes 0.2.0.jar' --main-class ch.judos.snakes.client.ClientLauncherKt --type exe --java-options '-Xjsr305=strict' --icon .\icon.ico --runtime-image smalljre

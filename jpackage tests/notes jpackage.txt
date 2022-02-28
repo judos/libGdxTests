@@ -1,0 +1,14 @@
+Notes creating exe
+
+Install WiX Toolset 3.11.2
+  https://github.com/wixtoolset/wix3/releases/tag/wix3112rtm
+
+Used java packages in TeamSnakes:
+	java.net
+	java.util
+	java.io
+	java.awt
+
+	
+Test project works with win-console:
+jpackage --name Test2 --input . --main-jar .\test2.jar --main-class ch.judos.Main --win-console

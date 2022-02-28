@@ -1,3 +1,7 @@
 .idea
 target
 *.iml
+jpackage tests/test/smalljre
+jpackage tests/jar-to-exe-workdir
+jpackage tests/test/TeamSnakes-1.0.exe
+jpackage tests/test/ClientLauncherKt-1.0.exe
